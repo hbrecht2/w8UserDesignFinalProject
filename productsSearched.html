@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number of Players</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/475b335362.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="jquery-3.3.1.min.js" ></script>
+        <script type="text/javascript" src="mustache.js" ></script>
+        
+    </head>
+
+    <body class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img class="img-fluid" src="images/hansBoardGamesLogo.png" width="50" height="50" alt="">
+            </a>
+          
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="shopHomePage.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reviews.html">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="loginPage.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="shopHomePage.html">Shop</a></li>
+              <li class="breadcrumb-item active" aria-current="page"></li>You searched for.. </li>
+            </ol>
+        </nav>
+
+        <div class="media productListing">
+            <img class="d-flex align-self-center mr-3" src="images/threePlayerFeaturedGame.jpeg" alt="Board Game Product Image">
+            <div class="media-body">
+                <h1 class="mt-0">Azul &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button class="btn btn-dark addToCartBtn" onclick = "goToCart()">$31.99 | Add to Cart</button></h1>
+                <p>Players: 2-4</p>
+                <p>Age Range: 8+</p>
+                <p>In the game Azul, players take turns drafting colored tiles from suppliers to their player board. Later in the round, players score points based on how they've placed their tiles to decorate the palace. Extra points are scored for specific patterns and completing sets; wasted supplies harm the player's score. The player with the most points at the end of the game wins. The individual with the most asthetically pleasing board will likely build a very strong palace.</p>           
+            </div>
+          </div>
+
+        <div class="media productListing">
+            <img class="d-flex align-self-center mr-3" src="images/sevenPlayerFeaturedGame.jpg" alt="Board Game Product Image">
+            <div class="media-body">
+                <h1 class="mt-0">Secret Hitler<button class="btn btn-dark addToCartBtn" onclick = "goToCart()">$31.99 | Add to Cart</button></h1>
+                <p>Players: 5-10</p>
+                <p>Age Range: 17+</p>
+                <p>Secret Hitler is a social deduction game for 5-10 people about finding and stopping the Secret Hitler. Players are secretly divided into two teams: the liberals, who have a majority, and the fascists, who are hidden to everyone but each other. If the liberals can learn to trust each other, they have enough votes to control the elections and save the day. But the fascists will say whatever it takes to get elected, advance their agenda, and win the game.</p>            </div>
+          </div>
+
+        <div class="input-group input-group-md w-50 reviewSearchBar">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-lg">Not the game you are searching for?</span>
+            </div>
+            <input id="reviewSearch" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="text-center submitBtn">
+            <button id="submitBtn" class="btn btn-dark">Submit</button>
+        </div>
+
+        <div class="container-fluid text-center footerMenu">
+            <a href="contactUsForm.html">Contact Us</a>
+        </div>
+
+        <script>
+            function getSearchTerm(){
+              var searchTerm = document.getElementById("reviewSearch").value
+              return searchTerm
+            };
+  
+            function loadReviewSearchResults() {
+              var submitBtn = document.getElementById("submitBtn");
+              var inputBar = document.getElementById("reviewSearch");
+  
+              submitBtn.addEventListener("click", function(){
+                window.location.href = "shopHomePage.html";
+              })
+
+  
+              inputBar.addEventListener("keyup", function(event){
+                if (event.keyCode === 13){
+                  window.location.href = "shopHomePage.html"
+                };
+              })
+            }
+
+            function goToCart(){
+              window.location.href = "cart.html"
+            }
+            
+            window.onload = loadReviewSearchResults()
+
+          </script>
+
+    </body>
+</html>
